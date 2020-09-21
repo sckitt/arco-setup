@@ -57,16 +57,17 @@ alias .5="cd ../../../../.."
 alias cdc="cd ~/Documents/codium"
 
 # dnf
-alias dnfi="sudo dnf install"
-alias dnfr="sudo dnf remove"
-alias dnfs="dnf search"
+# alias dnfi="sudo dnf install"
+# alias dnfr="sudo dnf remove"
+# alias dnfs="dnf search"
 
 # pacman and yay
-# alias pacsyu="sudo pacman -Syyu"                 # update only standard pkgs
-# alias yaysua="yay -Sua --noconfirm"              # update only AUR pkgs
-# alias yaysyu="yay -Syu --noconfirm"              # update standard pkgs and AUR pkgs
-# alias unlock="sudo rm /var/lib/pacman/db.lck"    # remove pacman lock
-# alias cleanup="sudo pacman -Rns $(pacman -Qtdq)" # remove orphaned packages
+alias pacs="sudo pacman -S"
+alias pacsyu="sudo pacman -Syyu"                 # update only standard pkgs
+alias yaysua="yay -Sua --noconfirm"              # update only AUR pkgs
+alias yaysyu="yay -Syu --noconfirm"              # update standard pkgs and AUR pkgs
+alias unlock="sudo rm /var/lib/pacman/db.lck"    # remove pacman lock
+alias cleanup="sudo pacman -Rns $(pacman -Qtdq)" # remove orphaned packages
 
 # Changing "ls" to "lsd"
 alias ls="lsd"
