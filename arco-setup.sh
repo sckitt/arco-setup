@@ -1,12 +1,5 @@
 #!/usr/bin/bash
 
-get_files () {
-    cd ~
-    wget https://raw.githubusercontent.com/sckitt/arco-setup/master/arco.packages
-    wget https://raw.githubusercontent.com/sckitt/arco-setup/master/fancy-bash-promt.sh
-    wget https://raw.githubusercontent.com/sckitt/arco-setup/master/.bashrc
-}
-
 install_programs () {
     # Install Tixati
     # Download Tutanota
@@ -16,7 +9,8 @@ install_programs () {
 }
 
 install_packages () {
-    sudo dnf install $(cat arco.packages) -y
+    sudo pacman -S $(cat packages.pacman)
+    yay -S $(cat packages.yay)
 }
 
 rice_shell () {
@@ -26,13 +20,9 @@ rice_shell () {
 }
 
 main () {
-    # get_files
-    # enable_repositories
-    # update_cache
     # install_programs
     # install_packages
     # rice_shell
-    # install_proton_builds
 }
 
 main "$@"

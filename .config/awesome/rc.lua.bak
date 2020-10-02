@@ -103,7 +103,7 @@ local themes = {
 }
 
 -- choose your theme here
-local chosen_theme = themes[2]
+local chosen_theme = themes[1]
 
 local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme)
 beautiful.init(theme_path)
@@ -338,7 +338,7 @@ globalkeys = my_table.join(
     -- super + ...
     --awful.key({ modkey }, "h", function () awful.util.spawn( "urxvt -T 'htop task manager' -e htop" ) end,
         --{description = "htop", group = "super"}),
-    awful.key({ modkey }, "r", function () awful.util.spawn( "rofi -show run -lines 6 -theme Arc-Dark" ) end,
+    awful.key({ modkey }, "r", function () awful.util.spawn( "rofi -show run" ) end,
         {description = "rofi", group = "super"}),
     awful.key({ modkey }, "t", function () awful.util.spawn( terminal ) end,
         {description = "terminal", group = "super"}),
@@ -565,6 +565,8 @@ globalkeys = my_table.join(
     awful.key({ modkey }, "KP_Subtract", function ()
     awful.screen.focused().systray.visible = not awful.screen.focused().systray.visible
     end, {description = "Toggle systray visibility", group = "awesome"}),
+
+
 
     -- On the fly useless gaps change
     awful.key({ altkey, "Control" }, "j", function () lain.util.useless_gaps_resize(1) end,
@@ -1109,11 +1111,8 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- }}}
 
--- Gaps
-beautiful.useless_gap = 5
-
 -- Autostart applications
 awful.spawn.with_shell("~/.config/awesome/autostart.sh")
 awful.spawn.with_shell("picom -b --config  $HOME/.config/awesome/picom.conf")
 -- awful.spawn.with_shell("feh --bg-fill --randomize ~/Pictures/wallpapers/japan")
-awful.spawn.with_shell("redshift -x ; redshift -O 2000")
+awful.spawn.with_shell("redshift -x ; redshift -O 3000")
