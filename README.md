@@ -1,11 +1,11 @@
-# fedora-setup
-Setup Script for Fedora
+# arco-setup
+Setup Script for Arco Linux
 
 Video Walkthrough https://www.youtube.com/watch?v=400g2uVV090
 
 Use the following command to run the script easily in one run:
 
-    wget https://raw.githubusercontent.com/sckitt/fedora-setup/master/fedora-setup.sh && sudo chmod +x fedora-setup.sh && ./fedora-setup.sh
+    wget https://raw.githubusercontent.com/sckitt/arco-setup/master/arco-setup.sh && sudo chmod +x arco-setup.sh && ./arco-setup.sh
 
 Below is everything included in this script:
 
@@ -14,7 +14,7 @@ Below is everything included in this script:
 3. Download packages via wget (Tutanota, Tor)
 4. Install packages via custom repo (Sublime-Text, VSCodium, youtube-dl)
 5. Install packages via DNF (25+ package suites)
-**See complete listing @ https://github.com/sckitt/fedora-setup/blob/master/fedora.packages
+**See complete listing @ https://github.com/sckitt/arco-setup/blob/master/arco.packages
 6. Install [inject-hatred](https://github.com/sckitt/inject-hatred)
 7. Edit bashrc to make a beautiful terminal
 8. Install custom Proton builds
