@@ -1,7 +1,7 @@
 ### FRONTEND REDIRECT
 
-profile_youtube="/home/user/.mozilla/firefox/hduch7j9.youtube"
-profile_sns="/home/user/.mozilla/firefox/e2ru4ul5.social-media"
+profile_youtube="/home/user/.mozilla/firefox/PLACEHOLDER.youtube"
+profile_sns="/home/user/.mozilla/firefox/PLACEHOLDER.social-media"
 
 first_parties=('youtube.com' 'twitter.com' 'instagram.com')
 third_parties=('invidious.tube' 'nitter.net' 'bibliogram.art')
