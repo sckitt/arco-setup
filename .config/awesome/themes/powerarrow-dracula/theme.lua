@@ -1,7 +1,7 @@
 --[[
 
-     Powerarrow Awesome WM theme
-     github.com/lcpz
+     Powerarrow-Dracula Awesome WM theme
+     github.com/sckitt
 
 --]]
 
@@ -15,17 +15,17 @@ local math, string, os = math, string, os
 local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 local theme                                     = {}
-theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/powerarrow"
+theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/powerarrow-dracula"
 theme.font                                      = "Noto Sans Regular 11"
 theme.taglist_font                              = "Noto Sans Regular 14"
-theme.fg_normal                                 = "#FEFEFE"
+theme.fg_normal                                 = "#ffffff" -- font
 theme.fg_focus                                  = "#7b88d3"
-theme.fg_urgent                                 = "#b74822"
-theme.bg_normal                                 = "#222222"
-theme.bg_focus                                  = "#1E2320"
+theme.fg_urgent                                 = "#f1fa8c" -- urgent tag
+theme.bg_normal                                 = "#1e1f29" -- menubar
+theme.bg_focus                                  = "#1e1f29" -- active tag bg
 theme.bg_urgent                                 = "#3F3F3F"
-theme.taglist_fg_focus                          = "#7b88d3"
-theme.tasklist_bg_focus                         = "#222222"
+theme.taglist_fg_focus                          = "#a46dac" -- active tag
+theme.tasklist_bg_focus                         = "#1e1f29"
 theme.tasklist_fg_focus                         = "#7b88d3"
 theme.border_width                              = dpi(2)
 theme.border_normal                             = "#3F3F3F"
@@ -392,17 +392,17 @@ function theme.at_screen_connect(s)
             -- using separators
             --arrow(theme.bg_normal, "#343434"),
            -- wibox.container.background(wibox.container.margin(wibox.widget { mailicon, mail and mail.widget, layout = wibox.layout.align.horizontal }, dpi(4), dpi(7)), "#343434"),
-            arrow("alpha", "#497B96"),
-            wibox.container.background(wibox.container.margin(wibox.widget { volicon, theme.volume.widget, layout = wibox.layout.align.horizontal }, dpi(2), dpi(3)), "#497B96"),
-            arrow("#497B96", "#777E76"),
-            wibox.container.background(wibox.container.margin(wibox.widget { memicon, mem.widget, layout = wibox.layout.align.horizontal }, dpi(2), dpi(3)), "#777E76"),
-            arrow("#777E76", "#4B696D"),
-            wibox.container.background(wibox.container.margin(wibox.widget { cpuicon, cpu.widget, layout = wibox.layout.align.horizontal }, dpi(3), dpi(4)), "#4B696D"),
-            arrow("#4B696D", "#C0C0A2"),
-            wibox.container.background(wibox.container.margin(wibox.widget { nil, neticon, net.widget, layout = wibox.layout.align.horizontal }, dpi(3), dpi(3)), "#C0C0A2"),
-            arrow("#C0C0A2", "#777E76"),
-            wibox.container.background(wibox.container.margin(clock, dpi(4), dpi(8)), "#777E76"),
-            arrow("#777E76", "alpha"),
+            arrow("alpha", "#6d74ac"),
+            wibox.container.background(wibox.container.margin(wibox.widget { volicon, theme.volume.widget, layout = wibox.layout.align.horizontal }, dpi(2), dpi(3)), "#6d74ac"),
+            arrow("#6d74ac", "#a46dac"),
+            wibox.container.background(wibox.container.margin(wibox.widget { memicon, mem.widget, layout = wibox.layout.align.horizontal }, dpi(2), dpi(3)), "#a46dac"),
+            arrow("#a46dac", "#6d74ac"),
+            wibox.container.background(wibox.container.margin(wibox.widget { cpuicon, cpu.widget, layout = wibox.layout.align.horizontal }, dpi(3), dpi(4)), "#6d74ac"),
+            arrow("#6d74ac", "#a46dac"),
+            wibox.container.background(wibox.container.margin(wibox.widget { nil, neticon, net.widget, layout = wibox.layout.align.horizontal }, dpi(3), dpi(3)), "#a46dac"),
+            arrow("#a46dac", "#6d74ac"),
+            wibox.container.background(wibox.container.margin(clock, dpi(4), dpi(8)), "#6d74ac"),
+            arrow("#6d74ac", "alpha"),
             --]]
             s.mylayoutbox,
         },

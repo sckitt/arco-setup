@@ -100,10 +100,11 @@ local themes = {
     "powerarrow",      		-- 2
     "powerarrow-blue",	 	-- 3
     "blackburn",		-- 4
+    "powerarrow-dracula",   -- 5
 }
 
 -- choose your theme here
-local chosen_theme = themes[2]
+local chosen_theme = themes[5]
 
 local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme)
 beautiful.init(theme_path)
@@ -122,7 +123,7 @@ local editorgui         = "subl3"
 local filemanager       = "thunar"
 local mailclient        = "evolution"
 local mediaplayer       = "spotify"
-local terminal          = "urxvt"
+local terminal          = "terminator"
 local virtualmachine    = "virtualbox"
 
 -- awesome variables
@@ -256,19 +257,6 @@ awful.util.mymainmenu = freedesktop.menu.build({
 
 
 -- {{{ Screen
--- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
-screen.connect_signal("property::geometry", function(s)
-    -- Wallpaper
-    if beautiful.wallpaper then
-        local wallpaper = beautiful.wallpaper
-        -- If wallpaper is a function, call it with the screen
-        if type(wallpaper) == "function" then
-            wallpaper = wallpaper(s)
-        end
-        gears.wallpaper.maximized(wallpaper, s, true)
-    end
-end)
-
 -- No borders when rearranging only 1 non-floating or maximized client
 screen.connect_signal("arrange", function (s)
     local only_one = #s.tiled_clients == 1
@@ -313,7 +301,7 @@ globalkeys = my_table.join(
     -- applications
     awful.key({ modkey }, "e", function() awful.util.spawn( filemanager ) end,
         {description = filemanager, group = "applications"}),
-    awful.key({ modkey }, "b", function () awful.util.spawn( browser1 ) end,
+    awful.key({ modkey }, "b", function () awful.util.spawn("firefox -P") end,
         {description = browser1, group = "applications"}),
     awful.key({ modkey, modkey1 }, "b", function () awful.util.spawn( browser2 ) end,
         {description = browser2, group = "applications"}),
@@ -324,21 +312,13 @@ globalkeys = my_table.join(
 
 
     -- super + ... function keys
-    awful.key({ modkey }, "F2", function () awful.util.spawn( editorgui ) end,
-        {description = editorgui , group = "function keys" }),
-    awful.key({ modkey }, "F4", function () awful.util.spawn( "gimp" ) end,
-        {description = "gimp" , group = "function keys" }),
-    awful.key({ modkey }, "F7", function () awful.util.spawn( "virtualbox" ) end,
-        {description = virtualmachine , group = "function keys" }),
-    awful.key({ modkey }, "F9", function () awful.util.spawn( mailclient ) end,
-        {description = mailclient , group = "function keys" }),
     awful.key({ modkey }, "F11", function () awful.util.spawn( "rofi-theme-selector" ) end,
         {description = "rofi theme selector" , group = "function keys" }),
 
     -- super + ...
     --awful.key({ modkey }, "h", function () awful.util.spawn( "urxvt -T 'htop task manager' -e htop" ) end,
         --{description = "htop", group = "super"}),
-    awful.key({ modkey }, "r", function () awful.util.spawn( "rofi -show run -lines 6 -theme Arc-Dark" ) end,
+    awful.key({ modkey }, "r", function () awful.util.spawn( "rofi -show run -lines 6 -theme Dracula" ) end,
         {description = "rofi", group = "super"}),
     awful.key({ modkey }, "t", function () awful.util.spawn( terminal ) end,
         {description = "terminal", group = "super"}),
@@ -353,7 +333,6 @@ globalkeys = my_table.join(
 
     -- super + shift + ...
     awful.key({ modkey, "Shift"   }, "Return", function() awful.util.spawn( filemanager ) end),
-
 
     -- ctrl + shift + ...
     awful.key({ modkey1, "Shift"  }, "Escape", function() awful.util.spawn("xfce4-taskmanager") end),
@@ -372,8 +351,6 @@ globalkeys = my_table.join(
         {description = "Xfce appfinder", group = "alt+ctrl"}),
     awful.key({ modkey1, altkey   }, "c", function() awful.util.spawn("catfish") end,
         {description = "catfish", group = "alt+ctrl"}),
-    awful.key({ modkey1, altkey   }, "i", function() awful.util.spawn("nitrogen") end,
-        {description = nitrogen, group = "alt+ctrl"}),
     awful.key({ modkey1, altkey   }, "k", function() awful.util.spawn( "arcolinux-logout" ) end,
         {description = scrlocker, group = "alt+ctrl"}),
     awful.key({ modkey1, altkey   }, "l", function() awful.util.spawn( "arcolinux-logout" ) end,
@@ -396,30 +373,6 @@ globalkeys = my_table.join(
         {description = "Pamac Manager", group = "alt+ctrl"}),
 
     -- alt + ...
-    awful.key({ altkey, "Shift"   }, "t", function () awful.spawn.with_shell( "variety -t  && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&" ) end,
-        {description = "Pywal Wallpaper trash", group = "altkey"}),
-    awful.key({ altkey, "Shift"   }, "n", function () awful.spawn.with_shell( "variety -n  && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&" ) end,
-        {description = "Pywal Wallpaper next", group = "altkey"}),
-    awful.key({ altkey, "Shift"   }, "u", function () awful.spawn.with_shell( "wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&" ) end,
-        {description = "Pywal Wallpaper update", group = "altkey"}),
-    awful.key({ altkey, "Shift"   }, "p", function () awful.spawn.with_shell( "variety -p  && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&" ) end,
-        {description = "Pywal Wallpaper previous", group = "altkey"}),
-    awful.key({ altkey }, "t", function () awful.util.spawn( "variety -t" ) end,
-        {description = "Wallpaper trash", group = "altkey"}),
-    awful.key({ altkey }, "n", function () awful.util.spawn( "variety -n" ) end,
-        {description = "Wallpaper next", group = "altkey"}),
-    awful.key({ altkey }, "p", function () awful.util.spawn( "variety -p" ) end,
-        {description = "Wallpaper previous", group = "altkey"}),
-    awful.key({ altkey }, "f", function () awful.util.spawn( "variety -f" ) end,
-        {description = "Wallpaper favorite", group = "altkey"}),
-    awful.key({ altkey }, "Left", function () awful.util.spawn( "variety -p" ) end,
-        {description = "Wallpaper previous", group = "altkey"}),
-    awful.key({ altkey }, "Right", function () awful.util.spawn( "variety -n" ) end,
-        {description = "Wallpaper next", group = "altkey"}),
-    awful.key({ altkey }, "Up", function () awful.util.spawn( "variety --pause" ) end,
-        {description = "Wallpaper pause", group = "altkey"}),
-    awful.key({ altkey }, "Down", function () awful.util.spawn( "variety --resume" ) end,
-        {description = "Wallpaper resume", group = "altkey"}),
     awful.key({ altkey }, "F2", function () awful.util.spawn( "gmrun" ) end,
         {description = "Gmrun", group = "altkey"}),
     awful.key({ altkey }, "F3", function () awful.util.spawn( "xfce4-appfinder" ) end,
@@ -448,18 +401,6 @@ globalkeys = my_table.join(
         {description = "view next", group = "tag"}),
     awful.key({ altkey,           }, "Escape", awful.tag.history.restore,
         {description = "go back", group = "tag"}),
-
-     -- Tag browsing alt + tab
-    awful.key({ altkey,           }, "Tab",   awful.tag.viewnext,
-        {description = "view next", group = "tag"}),
-    awful.key({ altkey, "Shift"   }, "Tab",  awful.tag.viewprev,
-        {description = "view previous", group = "tag"}),
-
-     -- Tag browsing modkey + tab
-    awful.key({ modkey,           }, "Tab",   awful.tag.viewnext,
-        {description = "view next", group = "tag"}),
-    awful.key({ modkey, "Shift"   }, "Tab",  awful.tag.viewprev,
-        {description = "view previous", group = "tag"}),
 
 
     -- Non-empty tag browsing
@@ -547,14 +488,6 @@ globalkeys = my_table.join(
               {description = "focus the previous screen", group = "screen"}),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
               {description = "jump to urgent client", group = "client"}),
-    awful.key({ modkey1,           }, "Tab",
-        function ()
-            awful.client.focus.history.previous()
-            if client.focus then
-                client.focus:raise()
-            end
-        end,
-        {description = "go back", group = "client"}),
 
  -- Show/Hide Systray
     awful.key({ modkey }, "-", function ()
@@ -577,10 +510,6 @@ globalkeys = my_table.join(
               {description = "add new tag", group = "tag"}),
     awful.key({ modkey, "Control" }, "r", function () lain.util.rename_tag() end,
               {description = "rename tag", group = "tag"}),
-    awful.key({ modkey, "Shift" }, "Left", function () lain.util.move_tag(-1) end,
-              {description = "move tag to the left", group = "tag"}),
-    awful.key({ modkey, "Shift" }, "Right", function () lain.util.move_tag(1) end,
-              {description = "move tag to the right", group = "tag"}),
     awful.key({ modkey, "Shift" }, "y", function () lain.util.delete_tag() end,
               {description = "delete tag", group = "tag"}),
 
@@ -668,62 +597,6 @@ globalkeys = my_table.join(
     --awful.key({}, "XF86AudioNext", function() awful.util.spawn("playerctl next", false) end),
     --awful.key({}, "XF86AudioPrev", function() awful.util.spawn("playerctl previous", false) end),
     --awful.key({}, "XF86AudioStop", function() awful.util.spawn("playerctl stop", false) end),
-
---Media keys supported by mpd.
-    awful.key({}, "XF86AudioPlay", function () awful.util.spawn("mpc toggle") end),
-    awful.key({}, "XF86AudioNext", function () awful.util.spawn("mpc next") end),
-    awful.key({}, "XF86AudioPrev", function () awful.util.spawn("mpc prev") end),
-    awful.key({}, "XF86AudioStop", function () awful.util.spawn("mpc stop") end),
-
-    -- MPD control
-    awful.key({ modkey1, "Shift" }, "Up",
-        function ()
-            os.execute("mpc toggle")
-            beautiful.mpd.update()
-        end,
-        {description = "mpc toggle", group = "widgets"}),
-    awful.key({ modkey1, "Shift" }, "Down",
-        function ()
-            os.execute("mpc stop")
-            beautiful.mpd.update()
-        end,
-        {description = "mpc stop", group = "widgets"}),
-    awful.key({ modkey1, "Shift" }, "Left",
-        function ()
-            os.execute("mpc prev")
-            beautiful.mpd.update()
-        end,
-        {description = "mpc prev", group = "widgets"}),
-    awful.key({ modkey1, "Shift" }, "Right",
-        function ()
-            os.execute("mpc next")
-            beautiful.mpd.update()
-        end,
-        {description = "mpc next", group = "widgets"}),
-    awful.key({ modkey1, "Shift" }, "s",
-
-
-
-        function ()
-            local common = { text = "MPD widget ", position = "top_middle", timeout = 2 }
-            if beautiful.mpd.timer.started then
-                beautiful.mpd.timer:stop()
-                common.text = common.text .. lain.util.markup.bold("OFF")
-            else
-                beautiful.mpd.timer:start()
-                common.text = common.text .. lain.util.markup.bold("ON")
-            end
-            naughty.notify(common)
-        end,
-        {description = "mpc on/off", group = "widgets"}),
-
-    -- Copy primary to clipboard (terminals to gtk)
-    --awful.key({ modkey }, "c", function () awful.spawn.with_shell("xsel | xsel -i -b") end,
-             -- {description = "copy terminal to gtk", group = "hotkeys"}),
-     --Copy clipboard to primary (gtk to terminals)
-    --awful.key({ modkey }, "v", function () awful.spawn.with_shell("xsel -b | xsel") end,
-              --{description = "copy gtk to terminal", group = "hotkeys"}),
-
 
     -- Default
     --[[ Menubar
@@ -887,6 +760,13 @@ awful.rules.rules = {
 
     -- Set applications to always map on the tag 1 on screen 1.
     -- find class or role via xprop command
+    { rule = { class = "Ibus-setup" },
+      properties = { screen = 1, tag = awful.util.tagnames[10], switchtotag = false  } },
+
+    { rule = { class = "Mullvad VPN" },
+          properties = { screen = 1, tag = awful.util.tagnames[10], switchtotag = false  } },
+
+
     --{ rule = { class = browser2 },
       --properties = { screen = 1, tag = awful.util.tagnames[1], switchtotag = true  } },
 
@@ -935,52 +815,20 @@ awful.rules.rules = {
     -- Set applications to be maximized at startup.
     -- find class or role via xprop command
 
-    { rule = { class = editorgui },
-          properties = { maximized = true } },
+    { rule = { class = "Thunar" },
+          properties = { maximized = false } },
 
-    { rule = { class = "Geany" },
-          properties = { maximized = false, floating = false } },
+    { rule = { class = "Tor Browser" },
+          properties = { maximized = false, floating = true } },
 
-    { rule = { class = "Gimp*", role = "gimp-image-window" },
-          properties = { maximized = true } },
-
-    { rule = { class = "Gnome-disks" },
-          properties = { maximized = true } },
-
-    { rule = { class = "inkscape" },
-          properties = { maximized = true } },
-
-    { rule = { class = mediaplayer },
-          properties = { maximized = true } },
-
-    { rule = { class = "Vlc" },
-          properties = { maximized = true } },
-
-    { rule = { class = "VirtualBox Manager" },
-          properties = { maximized = true } },
-
-    { rule = { class = "VirtualBox Machine" },
-          properties = { maximized = true } },
-
-    { rule = { class = "Vivaldi-stable" },
-          properties = { maximized = false, floating = false } },
-
-    { rule = { class = "Vivaldi-stable" },
-          properties = { callback = function (c) c.maximized = false end } },
-
-    --IF using Vivaldi snapshot you must comment out the rules above for Vivaldi-stable as they conflict
---    { rule = { class = "Vivaldi-snapshot" },
---          properties = { maximized = false, floating = false } },
-
---    { rule = { class = "Vivaldi-snapshot" },
---          properties = { callback = function (c) c.maximized = false end } },
+    { rule = { class = "projectM-pulseaudio" },
+          properties = { maximized = false, floating = true } },
 
     { rule = { class = "Xfce4-settings-manager" },
           properties = { floating = false } },
 
-
-
-
+    { rule = { class = "libreoffice-calc" },
+              properties = { floating = true } },
 
 
     -- Floating clients.
@@ -1115,5 +963,7 @@ beautiful.useless_gap = 5
 -- Autostart applications
 awful.spawn.with_shell("~/.config/awesome/autostart.sh")
 awful.spawn.with_shell("picom -b --config  $HOME/.config/awesome/picom.conf")
--- awful.spawn.with_shell("feh --bg-fill --randomize ~/Pictures/wallpapers/japan")
-awful.spawn.with_shell("redshift -x ; redshift -O 2000")
+awful.spawn.with_shell("feh --bg-fill --randomize ~/Pictures/wallpapers/japan")
+awful.spawn.with_shell("redshift -x && redshift -O 2000")
+awful.spawn.with_shell("ibus-setup")
+awful.spawn.with_shell("mullvad-vpn")
