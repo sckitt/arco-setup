@@ -1,29 +1,11 @@
 # arco-setup
 Setup Script for Arco Linux
 
-Video Walkthrough https://www.youtube.com/watch?v=400g2uVV090
-
-Use the following command to run the script easily in one run:
-
-    wget https://raw.githubusercontent.com/sckitt/arco-setup/master/arco-setup.sh && sudo chmod +x arco-setup.sh && ./arco-setup.sh
-
-Below is everything included in this script:
-
-1. Install workstation repositories (rpmfusion)
-2. Install packages via rpm download (balenaEtcher, Tixati)
-3. Download packages via wget (Tutanota, Tor)
-4. Install packages via custom repo (Sublime-Text, VSCodium, youtube-dl)
-5. Install packages via DNF (25+ package suites)
-**See complete listing @ https://github.com/sckitt/arco-setup/blob/master/arco.packages
-6. Install [inject-hatred](https://github.com/sckitt/inject-hatred)
-7. Edit bashrc to make a beautiful terminal
-8. Install custom Proton builds
-
-Below is a list of optional/manual installs:
-
-* improving gaming performance ([video walkthrough](https://youtu.be/-jLCjY7PNig?t=466))
-    * [DXVK](https://github.com/lutris/docs/blob/master/HowToDXVK.md)
-    * [Wine dependencies](https://github.com/lutris/docs/blob/master/WineDependencies.md)
-    * [driver support](https://github.com/lutris/docs/blob/master/InstallingDrivers.md)
-    * [graphics drivers](https://github.com/doitsujin/dxvk/wiki/Driver-support)
-* [projectM](https://github.com/projectM-visualizer/projectM)
+installation
+	linux
+	linux-lts
+	linux-hardened
+	amd-ucode, intel-ucode
+roadmap
+	Shift+Super+Space = toggle floating >> default keybinding = TBA
+	Super+h/j/k/l = focus left/up/right/down >> default keybindings = focus next/previous

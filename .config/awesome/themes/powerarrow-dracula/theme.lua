@@ -20,7 +20,7 @@ theme.font                                      = "Noto Sans Regular 11"
 theme.taglist_font                              = "Noto Sans Regular 14"
 theme.fg_normal                                 = "#ffffff" -- font
 theme.fg_focus                                  = "#7b88d3"
-theme.fg_urgent                                 = "#f1fa8c" -- urgent tag
+theme.fg_urgent                                 = "#8be9fd" -- urgent tag
 theme.bg_normal                                 = "#1e1f29" -- menubar
 theme.bg_focus                                  = "#1e1f29" -- active tag bg
 theme.bg_urgent                                 = "#3F3F3F"
@@ -376,7 +376,6 @@ function theme.at_screen_connect(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            wibox.widget.systray(),
             --[[ using shapes
             pl(wibox.widget { mpdicon, theme.mpd.widget, layout = wibox.layout.align.horizontal }, "#343434"),
             pl(task, "#343434"),
@@ -404,6 +403,7 @@ function theme.at_screen_connect(s)
             wibox.container.background(wibox.container.margin(clock, dpi(4), dpi(8)), "#6d74ac"),
             arrow("#6d74ac", "alpha"),
             --]]
+            wibox.widget.systray(),
             s.mylayoutbox,
         },
     }

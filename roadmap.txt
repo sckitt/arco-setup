@@ -1,8 +1,0 @@
-if nerd-fonts == false {
-	git clone nerd-fonts
-	cd nerd-fonts && sh install.sh
-}
-pending changes {
-	Shift+Super+Space = toggle floating >> default keybinding
-	Super+h/j/k/l = focus left/up/right/down >> default keybindings = focus next/previous
-}
