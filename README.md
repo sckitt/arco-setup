@@ -9,3 +9,4 @@ installation
 roadmap
 	Shift+Super+Space = toggle floating >> default keybinding = TBA
 	Super+h/j/k/l = focus left/up/right/down >> default keybindings = focus next/previous
+	sh {delete default awesome bg}

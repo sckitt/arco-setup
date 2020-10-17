@@ -3,6 +3,11 @@ export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 
+# navigation
+cdc() {
+	cd ~/Documents/codium/$1
+}
+
 ### ALIASES
 
 # navigation
@@ -11,10 +16,12 @@ alias .2="cd ../.."
 alias .3="cd ../../.."
 alias .4="cd ../../../.."
 alias .5="cd ../../../../.."
-alias cdc="cd ~/Documents/codium"
 
 # Sort by image dimensions
 alias lss="find . -exec exiftool -S -t -q -FileName -ImageSize  {} + | sort -k2n,2 > dir-dimensions_tmp.txt ; sed '0~2d' dir-dimensions_tmp.txt > dir-dimensions.txt ; rm dir-dimensions_tmp.txt"
+
+# scrot
+alias scrot="cd ~/Pictures && scrot"
 
 # youtube-dl
 alias ytdb="youtube-dl -f bestvideo+bestaudio"
@@ -23,14 +30,14 @@ alias ytdbb="youtube-dl -f bestvideo+bestaudio -a batch.txt"
 # redshift
 alias rs="redshift -x ; redshift -O"
 
-# frontend-redirect
-alias fr="sh .bashrc-fr.sh"
-
 # changing wallpapers
 alias change-bg="feh --bg-fill --randomize ~/Pictures/wallpapers/japan"
 
 # killall
 alias killtor="killall firefox.real"
+
+# frontend-redirect
+alias fr="sh .bashrc-fr.sh"
 
 # backup dotfiles
 alias arco-backup="cd '/home/user/Documents/codium/arco-setup/' && sh arco-backup.sh"
