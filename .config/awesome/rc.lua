@@ -964,6 +964,6 @@ beautiful.useless_gap = 5
 awful.spawn.with_shell("~/.config/awesome/autostart.sh")
 awful.spawn.with_shell("picom -b --config  $HOME/.config/awesome/picom.conf")
 awful.spawn.with_shell("feh --bg-fill --randomize ~/Pictures/wallpapers/japan")
-awful.spawn.with_shell("redshift -x && redshift -O 2000")
+awful.spawn.with_shell("redshift -x && redshift -O 3000")
 awful.spawn.with_shell("ibus-setup")
 awful.spawn.with_shell("mullvad-vpn")

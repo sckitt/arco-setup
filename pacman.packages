@@ -1,3 +1,4 @@
+arcolinux-cron-git
 audacity
 blender
 cmatrix
@@ -16,7 +17,8 @@ keepassxc
 lxappearance
 mpv
 neofetch
-perl-Image-ExifTool
+newsboat
+perl-image-exiftool
 piper
 projectm
 redshift

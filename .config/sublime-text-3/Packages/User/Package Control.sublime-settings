@@ -5,15 +5,8 @@
 	],
 	"installed_packages":
 	[
-		"3024 Color Scheme",
-		"Aurora Color Scheme",
-		"ayu",
-		"Horizon Color Scheme",
-		"Kick Assembler (C64)",
+		"Dracula Color Scheme",
 		"Package Control",
-		"Theme - Afterglow",
-		"Theme - Argonaut",
-		"Theme - Brogrammer",
 		"Theme - Fladaptive"
 	]
 }

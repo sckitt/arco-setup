@@ -39,5 +39,6 @@ alias killtor="killall firefox.real"
 # frontend-redirect
 alias fr="sh .bashrc-fr.sh"
 
-# backup dotfiles
+# backup
 alias arco-backup="cd '/home/user/Documents/codium/arco-setup/' && sh arco-backup.sh"
+alias timeshift="sudo timeshift-gtk"
