@@ -1,6 +1,8 @@
 [global_config]
   enabled_plugins = LaunchpadBugURLHandler, LaunchpadCodeURLHandler, APTURLHandler, TerminatorThemes
 [keybindings]
+  next_tab = <Primary><Shift>Tab
+  prev_tab = None
 [profiles]
   [[default]]
     background_color = "#1e1f29"

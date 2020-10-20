@@ -7,14 +7,22 @@ install_packages () {
 }
 
 build_from_source () {
-    #cd ~/src
-    #for $i in $(pwd) {
-    #    cd $i && makepkg -si PKGBUILD && cd ..
-    #}
+    cd ~/src
+    for i in *; do
+        if [ -d "${i}" ]; then
+            cd "${i}"
+            makepkg -si PKGBUILD
+            cd ..
+        fi
+    done
 }
 
 bug_fixes () {
+    # unstuck wallpaper
 	sudo rm /usr/share/backgrounds/arcolinux/arco-wallpaper.jpg
+
+    # hold kernel package for stability
+    sudo find /etc/pacman.conf -type f -exec sed -i 's/#IgnorePkg   =/IgnorePkg   = linux/g' {} \;
 }
 
 remove_bloatware () {
@@ -22,10 +30,10 @@ remove_bloatware () {
 }
 
 main () {
-    install_packages
+    #install_packages
     #build_from_source
-    bug_fixes
-    remove_bloatware
+    #bug_fixes
+    #remove_bloatware
 }
 
 main "$@"

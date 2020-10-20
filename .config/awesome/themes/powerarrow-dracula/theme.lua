@@ -18,13 +18,13 @@ local theme                                     = {}
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/powerarrow-dracula"
 theme.font                                      = "Noto Sans Regular 11"
 theme.taglist_font                              = "Noto Sans Regular 14"
-theme.fg_normal                                 = "#ffffff" -- font
+theme.fg_normal                                 = "#ffffff" -- font 090300 ffffff
 theme.fg_focus                                  = "#7b88d3"
-theme.fg_urgent                                 = "#8be9fd" -- urgent tag
+theme.fg_urgent                                 = "#ff5555" -- urgent tag
 theme.bg_normal                                 = "#1e1f29" -- menubar
 theme.bg_focus                                  = "#1e1f29" -- active tag bg
 theme.bg_urgent                                 = "#3F3F3F"
-theme.taglist_fg_focus                          = "#a46dac" -- active tag
+theme.taglist_fg_focus                          = "#bd93f9" -- active tag
 theme.tasklist_bg_focus                         = "#1e1f29"
 theme.tasklist_fg_focus                         = "#7b88d3"
 theme.border_width                              = dpi(2)
@@ -306,7 +306,7 @@ theme.volume = lain.widget.alsa({
 local neticon = wibox.widget.imagebox(theme.widget_net)
 local net = lain.widget.net({
     settings = function()
-        widget:set_markup(markup.fontfg(theme.font, "#FEFEFE", " " .. net_now.received .. " ↓↑ " .. net_now.sent .. " "))
+        widget:set_markup(markup.fontfg(theme.font, theme.fg_normal, " " .. net_now.received .. " ↓↑ " .. net_now.sent .. " "))
     end
 })
 
@@ -391,19 +391,19 @@ function theme.at_screen_connect(s)
             -- using separators
             --arrow(theme.bg_normal, "#343434"),
            -- wibox.container.background(wibox.container.margin(wibox.widget { mailicon, mail and mail.widget, layout = wibox.layout.align.horizontal }, dpi(4), dpi(7)), "#343434"),
-            arrow("alpha", "#a46dac"),
-            wibox.container.background(wibox.container.margin(wibox.widget { volicon, theme.volume.widget, layout = wibox.layout.align.horizontal }, dpi(2), dpi(3)), "#a46dac"),
-            arrow("#a46dac", "#6d74ac"),
-            wibox.container.background(wibox.container.margin(wibox.widget { memicon, mem.widget, layout = wibox.layout.align.horizontal }, dpi(2), dpi(3)), "#6d74ac"),
-            arrow("#6d74ac", "#a46dac"),
-            wibox.container.background(wibox.container.margin(wibox.widget { cpuicon, cpu.widget, layout = wibox.layout.align.horizontal }, dpi(3), dpi(4)), "#a46dac"),
-            arrow("#a46dac", "#6d74ac"),
-            wibox.container.background(wibox.container.margin(wibox.widget { baticon, bat.widget, layout = wibox.layout.align.horizontal }, dpi(3), dpi(3)), "#6d74ac"),
-            arrow("#6d74ac", "#a46dac"),
-            wibox.container.background(wibox.container.margin(wibox.widget { nil, neticon, net.widget, layout = wibox.layout.align.horizontal }, dpi(3), dpi(3)), "#a46dac"),
-            arrow("#a46dac", "#6d74ac"),
-            wibox.container.background(wibox.container.margin(clock, dpi(4), dpi(8)), "#6d74ac"),
-            arrow("#6d74ac", "alpha"),
+            arrow("alpha", "#ff79c6"),
+            wibox.container.background(wibox.container.margin(wibox.widget { volicon, theme.volume.widget, layout = wibox.layout.align.horizontal }, dpi(2), dpi(3)), "#ff79c6"),
+            arrow("#ff79c6", "#bd93f9"),
+            wibox.container.background(wibox.container.margin(wibox.widget { memicon, mem.widget, layout = wibox.layout.align.horizontal }, dpi(2), dpi(3)), "#bd93f9"),
+            arrow("#bd93f9", "#ff79c6"),
+            wibox.container.background(wibox.container.margin(wibox.widget { cpuicon, cpu.widget, layout = wibox.layout.align.horizontal }, dpi(3), dpi(4)), "#ff79c6"),
+            arrow("#ff79c6", "#bd93f9"),
+            wibox.container.background(wibox.container.margin(wibox.widget { baticon, bat.widget, layout = wibox.layout.align.horizontal }, dpi(3), dpi(3)), "#bd93f9"),
+            arrow("#bd93f9", "#ff79c6"),
+            wibox.container.background(wibox.container.margin(wibox.widget { nil, neticon, net.widget, layout = wibox.layout.align.horizontal }, dpi(3), dpi(3)), "#ff79c6"),
+            arrow("#ff79c6", "#bd93f9"),
+            wibox.container.background(wibox.container.margin(clock, dpi(4), dpi(8)), "#bd93f9"),
+            arrow("#bd93f9", "alpha"),
             --]]
             wibox.widget.systray(),
             s.mylayoutbox,
