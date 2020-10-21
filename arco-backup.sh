@@ -30,7 +30,7 @@ import_settings () {
     cp -r .themes ~
     cp -r .w3m ~
     cp .bashrc-personal ~
-    #cp .bashrc-fr.sh ~
+    cp .bashrc-fr.sh ~
 }
 
 main () {
