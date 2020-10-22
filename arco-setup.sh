@@ -25,15 +25,10 @@ bug_fixes () {
     sudo find /etc/pacman.conf -type f -exec sed -i 's/#IgnorePkg   =/IgnorePkg   = linux/g' {} \;
 }
 
-remove_bloatware () {
-    sudo pacman -R blueberry
-}
-
 main () {
     #install_packages
     #build_from_source
-    #bug_fixes
-    #remove_bloatware
+    bug_fixes
 }
 
 main "$@"
