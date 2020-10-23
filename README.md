@@ -2,7 +2,7 @@
 Setup Script for Arco Linux
 
 # installation
-    - linux w/nvidia, linux-hardened, amd-ucode
+    - linux w/nvidia, amd-ucode
     - linux, intel-ucode
 
 # color scheme: Dracula
