@@ -22,9 +22,10 @@ lxappearance
 mpv
 neofetch
 newsboat
+pavucontrol
 perl-image-exiftool
 piper
-projectm
+projectm-pulseaudio
 redshift
 spotify
 sublime-text-dev
@@ -35,6 +36,7 @@ torbrowser-launcher
 unrar
 vim
 virtualbox
+virtualbox-host-dkms
 vlc
 w3m
 wget

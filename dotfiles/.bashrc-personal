@@ -64,4 +64,4 @@ alias killtor="killall firefox.real"
 alias fr="sh .bashrc-fr.sh"
 
 # backup dotfiles
-alias arco-backup="cd '/home/user/Documents/codium/arco-setup/' && sh arco-backup.sh"
+alias arco-export="cd '/home/user/Documents/codium/arco-setup/' && sh arco-export.sh"

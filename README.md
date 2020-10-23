@@ -2,10 +2,8 @@
 Setup Script for Arco Linux
 
 # installation
-    - linux
-    - linux-lts
-    - linux-hardened
-    - amd-ucode, intel-ucode
+    - linux w/nvidia, linux-hardened, amd-ucode
+    - linux, intel-ucode
 
 # color scheme: Dracula
 **gtk**
@@ -27,4 +25,3 @@ Setup Script for Arco Linux
 
 # roadmap
     - Super+h/j/k/l = focus left/up/right/down >> default keybindings = focus next/previous
-    - sh {delete default awesome bg}
