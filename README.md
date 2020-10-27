@@ -1,5 +1,5 @@
 # arco-setup
-Setup Script for Arco Linux
+Setup Script for [ArcoLinuxB Awesome](https://arcolinuxb.com/byoi-on-arcolinux-awesome/)
 
 # installation
     - linux w/nvidia, linux-hardened, amd-ucode
@@ -24,4 +24,4 @@ Setup Script for Arco Linux
 5. The theme will be available from `File -> Preferences -> Color Theme` dropdown menu.
 
 # roadmap
-    - Super+h/j/k/l = focus left/up/right/down >> default keybindings = focus next/previous
+    N/A

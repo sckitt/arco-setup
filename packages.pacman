@@ -1,8 +1,5 @@
 arcolinux-cron-git
-arcolinux-meta-steam
 audacity
-blender
-cmatrix
 cmus
 eom
 ffmpeg
@@ -14,6 +11,7 @@ git
 gnupg
 gtop
 handbrake
+htop
 ibus-anthy
 imagewriter
 keepassxc
@@ -27,7 +25,6 @@ perl-image-exiftool
 piper
 projectm-pulseaudio
 redshift
-spotify
 sublime-text-dev
 terminator
 timeshift

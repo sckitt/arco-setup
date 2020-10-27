@@ -25,20 +25,37 @@ build_from_source () {
     done
 }
 
-setup_gaming () {
-    # mpv https://www.youtube.com/watch?v=-jLCjY7PNig
+esync () {
     if [[ $(ulimit -Hn) -ge 524288 ]]; then
         echo "Esync enabled"
     else
         while true; do
             read -p "Esync disabled. Do you want to enable? [y/n]" yn
             case $yn in
-                [Yy]* ) break;; # (not working) echo "DefaultLimitNOFILE=524288" >> /etc/systemd/system.conf
+                [Yy]* ) echo 'DefaultLimitNOFILE=524288' | sudo tee -a /etc/systemd/system.conf \
+                        echo 'DefaultLimitNOFILE=524288' | sudo tee -a /etc/systemd/user.conf
+                        break;;
                 [Nn]* ) exit;;
                 * ) echo "Please answer yes or no.";;
             esac
         done
     fi
+}
+
+dxvk () {
+    #grep --color=always -n "multilib" /etc/pacman.conf
+    if grep -Fxq "[multilib]" /etc/pacman.conf
+        then
+                echo "String found"
+        else
+                echo "String not found"
+    fi
+}
+
+setup_gaming () {
+    # mpv https://www.youtube.com/watch?v=-jLCjY7PNig
+    esync
+    dxvk
 }
 
 import_settings () {
@@ -49,7 +66,7 @@ main () {
     #bug_fixes
     #install_packages
     #build_from_source
-    setup_gaming
+    #setup_gaming
     #import_settings
 }
 
